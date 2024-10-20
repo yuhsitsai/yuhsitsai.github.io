@@ -1,0 +1,108 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
+}
+
+body {
+    background-color: #fffcf1;
+    height:100%;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 6fr 3fr;
+}
+
+.sidebar{
+    background-color: #84a16f;
+    height: 100vh;
+    width: 10%;
+    position: fixed;
+
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 7fr 2fr 1fr;
+}
+
+.logo img{
+    width: 50%;
+    height: flex;
+    margin: 40px;
+}
+
+.contact{
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+
+    padding-left: 45px;
+    padding-right: 75px;
+    padding-top: 30px;
+
+    font-size: 1.25em;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+}
+
+.contact a{
+    display: inline;
+    color: rgb(240, 255, 246);
+    font-weight: bold;
+}
+
+.content{
+    height: 100vh;
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+
+    display: flex;
+    flex-direction: column;       /* Stack cards in a column */
+    gap: 20px;                   /* Space between cards */
+    margin-top: 50px;
+}
+
+.card {
+    display: flex;
+    background-color: #f6fae5;
+    color: rgb(89, 67, 37);
+    box-shadow: 0 4px 8px rgba(51, 40, 23, 0.1); /* Shadow effect */
+    border-radius: 8px;          /* Rounded corners */
+    overflow: hidden;             /* Prevent overflow of content */
+    /*width: 100vw;                 /* Set a width for the card */
+    margin-left: 50px;                 /* Spacing around the card */
+    margin-right: 50px;                /* Spacing around the card */
+    transition: transform 0.2s;   /* Smooth transition on hover */
+
+}
+
+.card-image {
+    width: 350px;                /* Fixed width for the image */
+    height: auto;                /* Maintain aspect ratio */
+    margin: 10px;
+}
+
+.card-content {
+    padding: 16px;               /* Spacing inside the card */
+    display: flex;               /* Use flexbox for vertical alignment */
+    flex-direction: column;      /* Arrange content vertically */
+    justify-content: center;      /* Center content vertically */
+    flex: 1;                     /* Allow content to take remaining space */
+}
+
+.card-title {
+    margin: 0;                   /* Remove default margin */
+    font-size: 1.5em;            /* Title font size */
+}
+
+.card-description {
+    color: #666;                 /* Description color */
+}
+
