@@ -128,3 +128,83 @@ body {
     color: #666;                 /* Description color */
 }
 
+@media(max-width: 768px){
+    .homepage {
+        display: grid;
+        grid-template-rows: 5fr 1fr 5fr;
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        width: 100%; /* Full width for sidebar */
+        height: 100%;
+        padding: 10px;
+        position: relative; /* Position relative for stacking */
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    
+    .introduction{
+        grid-row: 2 / 4;
+        grid-column: 1 / -1;
+    
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 20px;
+    
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .hi{
+        margin: 5px;
+        color: rgb(240, 255, 246);
+    }
+    
+    .name{
+        font-size: 4em;
+        font-weight: bold;
+        color: rgb(240, 255, 246);
+    }
+    
+    .blurb{
+        margin-left: 5px;
+        margin-top: 20px;
+        color:  rgb(240, 255, 246);
+    }
+
+    .navbar{
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .content {
+        margin-top: 20px; /* Adjust margin for mobile */
+        grid-row: 3 / -1;
+        grid-column: 1 / 2;
+    }
+
+
+
+
+    .card {
+        margin: 10px; /* Adjust margins */
+    }
+
+    .card-image {
+        width: 100%; /* Full width for images */
+        margin: 0; /* Remove margin */
+    }
+
+    .card-title {
+        font-size: 1.25em; /* Adjust title size */
+    }
+}
