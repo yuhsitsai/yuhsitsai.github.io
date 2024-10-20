@@ -124,11 +124,7 @@ body {
     font-size: 1.5em;            /* Title font size */
 }
 
-.card-description {
-    color: #666;                 /* Description color */
-}
-
-@media screen and (max-width: 1200px){
+@media screen and (max-aspect-ratio: 4/3){
     .homepage {
         display: grid;
         grid-template-rows: 5fr 1fr 5fr;
@@ -204,4 +200,36 @@ body {
     .card-title {
         font-size: 1.25em; /* Adjust title size */
     }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        background-color: #f6fae5;
+        color: rgb(89, 67, 37);
+        box-shadow: 0 4px 8px rgba(51, 40, 23, 0.1); /* Shadow effect */
+        border-radius: 8px;          /* Rounded corners */
+        overflow: hidden;             /* Prevent overflow of content */
+        margin-left: 50px;                 /* Spacing around the card */
+        margin-right: 50px;    
+    }
+    
+    .card-image {
+        width: auto;                /* Fixed width for the image */
+        height: 200px;                /* Maintain aspect ratio */
+        margin: 10px;
+    }
+    
+    .card-content {
+        padding: 16px;               /* Spacing inside the card */
+        display: flex;               /* Use flexbox for vertical alignment */
+        flex-direction: column;      /* Arrange content vertically */
+        justify-content: center;      /* Center content vertically */
+        /*flex: 1;                     /* Allow content to take remaining space */
+    }
+    
+    .card-title {
+        margin: 0;                   /* Remove default margin */
+        font-size: 1.5em;            /* Title font size */
+    }
+    
 }
