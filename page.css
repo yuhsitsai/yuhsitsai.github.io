@@ -106,3 +106,37 @@ body {
     color: #666;                 /* Description color */
 }
 
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width for sidebar */
+        height: auto; /* Adjust height */
+        position: relative; /* Position relative for stacking */
+    }
+
+    .page {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto 1fr; /* Stack sidebar above content */
+    }
+
+    .content {
+        margin-top: 20px; /* Adjust margin for mobile */
+    }
+
+    .contact {
+        padding: 20px; /* Adjust padding */
+        font-size: 1em; /* Smaller font size */
+    }
+
+    .card {
+        margin: 10px; /* Adjust margins */
+    }
+
+    .card-image {
+        width: 100%; /* Full width for images */
+        margin: 0; /* Remove margin */
+    }
+
+    .card-title {
+        font-size: 1.25em; /* Adjust title size */
+    }
+}
