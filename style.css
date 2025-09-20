@@ -9,10 +9,14 @@ body {
     height:100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 .homepage {
     display: grid;
     grid-template-rows: 1fr 7fr;
-    grid-template-columns: 4fr 3fr 3fr;
+    grid-template-columns: 2fr 3fr;
 }
 
 .sidebar{
@@ -48,7 +52,7 @@ body {
 }
 
 .name{
-    font-size: 5em;
+    font-size: 4em;
     font-weight: bold;
     color: rgb(240, 255, 246);
 }
@@ -59,64 +63,64 @@ body {
     color:  rgb(240, 255, 246);
 }
 
+.blurb a{
+    text-decoration: underline;
+}
+
 .introduction a{
     display: inline;
     color: rgb(240, 255, 246);
     font-weight: bold;
 }
 
-.navbar{
-    grid-row: 1 / 2;
-    grid-column: 3 / -1;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.navbar a{
-    color: rgb(89, 67, 37);
-    font-weight: bold;
-    font-size: 1.25em;
-}
-
 .content{
     height: 100vh;
-    grid-row: 2 / -1;
+    grid-row: 1 / -1;
     grid-column: 2 / -1;
 
     display: flex;
     flex-direction: column;       /* Stack cards in a column */
-    gap: 20px;                   /* Space between cards */
+}
+
+.controlwidth{
+    margin-left:50px;
+    margin-right:50px;
 }
 
 .card {
     display: flex;
+    flex-direction: row;
     background-color: #f6fae5;
     color: rgb(89, 67, 37);
-    box-shadow: 0 4px 8px rgba(51, 40, 23, 0.1); /* Shadow effect */
-    border-radius: 8px;          /* Rounded corners */
-    overflow: hidden;             /* Prevent overflow of content */
-    /*width: 100vw;                 /* Set a width for the card */
-    margin-left: 50px;                 /* Spacing around the card */
-    margin-right: 50px;
-    transition: transform 0.2s;   /* Smooth transition on hover */
+    box-shadow: 0 4px 8px rgba(51, 40, 23, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom:15px;
 
+    transition: transform 0.2s;
+    box-sizing: border-box;
+
+    /* Fix for content overflow */
+    max-width: calc(100vw - 100px); /* Prevent wider than viewport (margin * 2) */
+    flex-wrap: wrap; /* Allow image and text to stack if needed */
 }
 
 .card-image {
-    width: 350px;                /* Fixed width for the image */
-    height: auto;                /* Maintain aspect ratio */
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
     margin: 10px;
+    flex-shrink: 0; /* Prevent image from shrinking too small */
 }
 
 .card-content {
-    padding: 16px;               /* Spacing inside the card */
-    display: flex;               /* Use flexbox for vertical alignment */
-    flex-direction: column;      /* Arrange content vertically */
-    justify-content: center;      /* Center content vertically */
-    flex: 1;                     /* Allow content to take remaining space */
+    flex: 1 1 0;
+    padding: 1em;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    min-width: 0; /* Prevent flex children from growing beyond card */
 }
 
 .card-title {
@@ -124,10 +128,21 @@ body {
     font-size: 1.5em;            /* Title font size */
 }
 
+.card-description {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    
+    font-size: 1.1em;
+    line-height:1.5;
+}
+
+.card:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
 @media screen and (max-aspect-ratio: 4/3){
     .homepage {
         display: grid;
-        grid-template-rows: 5fr 1fr 5fr;
+        grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
     }
 
@@ -135,7 +150,7 @@ body {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         width: 100%; /* Full width for sidebar */
-        height: 90%;
+        height: 100%;
         padding: 10px;
         position: relative; /* Position relative for stacking */
         display: grid;
@@ -172,24 +187,10 @@ body {
         color:  rgb(240, 255, 246);
     }
 
-    .navbar{
-        grid-row: 2 / 3;
-        grid-column: 1 / 2;
-    
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-right: 20px;
-    }
-
     .content {
         margin-top: 20px; /* Adjust margin for mobile */
-        grid-row: 3 / -1;
+        grid-row: 2 / -1;
         grid-column: 1 / 2;
-    }
-
-    .card {
-        margin: 10px; /* Adjust margins */
     }
 
     .card-image {
@@ -208,9 +209,13 @@ body {
         color: rgb(89, 67, 37);
         box-shadow: 0 4px 8px rgba(51, 40, 23, 0.1); /* Shadow effect */
         border-radius: 8px;          /* Rounded corners */
-        overflow: hidden;             /* Prevent overflow of content */
-        margin-left: 50px;                 /* Spacing around the card */
-        margin-right: 50px;    
+        overflow: hidden;             /* Prevent overflow of content */ 
+        margin: 20px;
+    }
+
+    .controlwidth{
+        margin-left:20px;
+        margin-right:20px;
     }
     
     .card-image {
@@ -220,7 +225,7 @@ body {
     }
     
     .card-content {
-        padding: 16px;               /* Spacing inside the card */
+        /*padding: 16px;               /* Spacing inside the card */
         display: flex;               /* Use flexbox for vertical alignment */
         flex-direction: column;      /* Arrange content vertically */
         justify-content: center;      /* Center content vertically */
